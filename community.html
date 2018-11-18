@@ -11,10 +11,65 @@
     <title>Hello, world!</title>
   </head>
   <body>
+
     <div class="container-fluid">
+
       <div class="row justify-content-center">
         <div class="col-12">
-          <div class="card" style="width: 18rem;">
+          <div class="card">
+            <div class="card-header">
+               <strong>Mimi</strong> posted a project
+            </div>
+            <img class="card-img-top" src="resources/images/heart.jpg" alt="An imagilab cube is displaying a colorful heart.">
+            <div class="card-body">
+              <h5 class="card-title">Colorful Heart  <small><i class="fa fa-thumbs-up"></i>5</small></h5>
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Description</a>
+                  <p class="card-text">I programmed a colorful heart. It moves around and changes color. <a href="#" class="badge badge-info">Heart-shape</a> <a href="#" class="badge badge-info">Colors</a> <a href="#" class="badge badge-info">Color-Change</a> <a href="#" class="badge badge-info">Animation</a></p>
+                  <!--<a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Code</a>
+                  <code>
+                    def derivs(state, t):
+
+                      dydx = np.zeros_like(state)
+                      dydx[0] = state[1]
+
+                      del_ = state[2] - state[0]
+                      den1 = (M1 + M2)*L1 - M2*L1*cos(del_)*cos(del_)
+                      dydx[1] = (M2*L1*state[1]*state[1]*sin(del_)*cos(del_) +
+                                 M2*G*sin(state[2])*cos(del_) +
+                                 M2*L2*state[3]*state[3]*sin(del_) -
+                                 (M1 + M2)*G*sin(state[0]))/den1
+
+                      dydx[2] = state[3]
+
+                      den2 = (L2/L1)*den1
+                      dydx[3] = (-M2*L2*state[3]*state[3]*sin(del_)*cos(del_) +
+                                 (M1 + M2)*G*sin(state[0])*cos(del_) -
+                                 (M1 + M2)*L1*state[1]*state[1]*sin(del_) -
+                                 (M1 + M2)*G*sin(state[2]))/den2
+
+                      return dydx
+
+                  </code>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Comments</a>
+                </li>
+              </ul>
+              <button type="button" class="btn btn-info btn-sm"><i class="fa fa-thumbs-up"></i> Like</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="card">
             <img class="card-img-top" src=".../100px180/" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
@@ -24,18 +79,7 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
 
     <!-- Optional JavaScript -->
@@ -43,5 +87,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   </body>
 </html>
