@@ -15,6 +15,26 @@ body{
 
 }
 
+.community{
+    background-color: #00aaab;
+}
+
+.project{
+    background-color: #f26f5f;
+}
+
+.learn{
+    background-color: #576bb3;
+}
+
+.connect{
+    background-color: #f5b218;
+}
+
+.btnMain{
+    width: 100%;
+}
+
 .bg {
     /* The image used */
     background-image: url("../images/backgroundImage/backgroundImage.png");
