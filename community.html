@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,20 +10,35 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+
+    <!--font-->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+
     <!-- custom stylesheet -->
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 
-    <title>Community</title>
+    <title >Community</title>
   </head>
-  <body class="text-center imagiBG">
+  <body class="text-center imagiBG font-type">
+    
 
     <div class="container-fluid">
-      <nav class="navbar fixed-top shadow p-3 project">
+      <nav class="navbar fixed-top shadow p-3 community">
         <!--<div class="col-xs-3">menu</div>-->
-        <div class="col-xs-12 mx-auto">COMMUNITY</div>
+        <div class="col-xs-12 mx-auto white-text">COMMUNITY</div>
       </nav>
 
       <div class="row justify-content-center">
+        <div class="dropdown">
+          <button class="btn community btn-circle btn-lg" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="dropdown-menu post-menu text-center" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button"><a href="addMedia.html"><button class="project btn btnPost ">PROJECT</button></button>
+            <button class="dropdown-item" type="button"><button class="learn btn btnPost ">QUESTION</button></button>
+          </div>
+        </div>
+
         <div class="col-12" id="community-content">
           
           <!--Project post-->
@@ -90,7 +107,7 @@ def derivs(state, t):
               </div>
               
               <!--Description-->
-              <p class="card-text">I programmed a colorful heart. It moves around and changes color. <a href="#" class="badge badge-info">Heart-shape</a> <a href="#" class="badge badge-info">Colors</a> <a href="#" class="badge badge-info">Color-Change</a> <a href="#" class="badge badge-info">Animation</a></p>
+              <p class="card-text">I programmed a colorful heart. It moves around and changes color. <a href="#" class="badge badge-info community">Heart-shape</a> <a href="#" class="badge badge-info community">Colors</a> <a href="#" class="badge badge-info community">Color-Change</a> <a href="#" class="badge badge-info community">Animation</a></p>
               <!--<a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
             
@@ -190,6 +207,7 @@ def derivs(state, t):
       </div>
 
     </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

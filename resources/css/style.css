@@ -133,9 +133,56 @@
     margin-top: 10%;
 }
 
+.font-type{
+    font-family: "Lato";
+}
+
+.white-text {
+    color: white;
+}
+
 #community-content {
     margin-top: 20%;
 }
+
+#plus {
+    position: absolute;
+    top: 200px;
+
+}
+
+#post-options {
+    background-color: #00aaab;
+    width: 200px;
+    height: 200px;
+    position: fixed; 
+    bottom: 10px; 
+    right: 10px;
+    z-index: 999;
+}
+
+.btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+    position: fixed; 
+    bottom: 10px; 
+    right: 10px;
+    z-index: 800;
+}
+
+.btnPost{
+    width: 80%;
+    color: white;
+    font-weight: bold;
+    padding: 2%;
+    font-family: "Lato";
+
+}
+
 
 a {
     color: gray;
