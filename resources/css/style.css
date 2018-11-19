@@ -112,6 +112,24 @@
     font-size: 0.9em;
 }
 
+.card {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.question-media {
+    height: 100%;
+    width: 100%;
+}
+
+.question-media-icon {
+    font-size: 8em;
+    margin-top: 10%;
+}
+
+#community-content {
+    margin-top: 20%;
+}
+
 a {
     color: gray;
 }
@@ -119,3 +137,4 @@ a {
 a:hover {
     color: gray;
 }
+

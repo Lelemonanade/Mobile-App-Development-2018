@@ -13,12 +13,16 @@
 
     <title>Community</title>
   </head>
-  <body>
+  <body class="text-center imagiBG">
 
     <div class="container-fluid">
+      <nav class="navbar fixed-top shadow p-3 project">
+        <!--<div class="col-xs-3">menu</div>-->
+        <div class="col-xs-12 mx-auto">COMMUNITY</div>
+      </nav>
 
       <div class="row justify-content-center">
-        <div class="col-12">
+        <div class="col-12" id="community-content">
           
           <!--Project post-->
           <div class="card">
@@ -92,7 +96,7 @@ def derivs(state, t):
             
             <!--Footer-->
             <div class="card-footer">
-              <div class="row">
+              <div class="row justify-content-center">
                 <div class="col"><a href=""><i class="far fa-thumbs-up"></i> Like </a></div>
                 <div class="col"><a href=""><i class="far fa-comment"></i> Comment </a></div>
               </div>
@@ -105,10 +109,81 @@ def derivs(state, t):
       <div class="row justify-content-center">
         <div class="col-12">
           <div class="card">
-            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+            
+            <!--Post Header-->
+            <div class="card-header">
+              <img class="thumbnail" src="resources/images/profiles/profile1.png" alt="First slide"> 
+              <div class="post-owner">
+                <strong>Katie</strong>
+                <span class="date-time">Today at 5:24 PM</span>
+              </div>
+            </div>
+
+            <!--Title-->
+            <h5 class="card-title">Error in Animation</h5>
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+             
+              <!--Media carousel-->
+              <div id="card-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active cardCarousel">
+                      <div class="question-media text-center community"><i class="fas fa-question question-media-icon"></i></div>
+                    
+                  </div>
+                  <div class="carousel-item cardCarousel" >
+                    <div class="scrollableCarousel">
+                      <pre><code>
+def derivs(state, t):
+
+  dydx = np.zeros_like(state)
+  dydx[0] = state[1]
+
+  del_ = state[2] - state[0]
+  den1 = (M1 + M2)*L1 - M2*L1*cos(del_)*cos(del_)
+  dydx[1] = (M2*L1*state[1]*state[1]*sin(del_)*cos(del_) +
+             M2*G*sin(state[2])*cos(del_) +
+             M2*L2*state[3]*state[3]*sin(del_) -
+             (M1 + M2)*G*sin(state[0]))/den1
+
+  dydx[2] = state[3]
+
+  den2 = (L2/L1)*den1
+  dydx[3] = (-M2*L2*state[3]*state[3]*sin(del_)*cos(del_) +
+             (M1 + M2)*G*sin(state[0])*cos(del_) -
+             (M1 + M2)*L1*state[1]*state[1]*sin(del_) -
+             (M1 + M2)*G*sin(state[2]))/den2
+
+  return dydx
+
+                      </code></pre>
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              
+              <!--Description-->
+              <p class="card-text">I have a problem with the animation. I am trying to make it move clockwise, but it constantly move counter clock wise. I have checked the sign of the angle but that seams to be right. Does one of you know what is wrong in my code?</p>
+              <!--<a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+            
+            <!--Footer-->
+            <div class="card-footer">
+              <div class="row justify-content-center">
+                <div class="col"><a href=""><i class="far fa-thumbs-up"></i> Like </a></div>
+                <div class="col"><a href=""><i class="far fa-comment"></i> Comment </a></div>
+              </div>
             </div>
           </div>
         </div>
