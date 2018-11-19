@@ -59,7 +59,7 @@
 
 .bg {
     /* The image used */
-    background-image: url("/resources/images/backgroundImage/backgroundImage.png");
+    background-image: url("../images/backgroundImage/backgroundImage.png");
 
     /* Full height */
     height: 100%;
@@ -68,54 +68,4 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.scrollableCarousel {
-  height:200px;
-  overflow-y: scroll;
-  font-size: 0.5em;
-}
-
-.cardCarousel {
-	height: 200px;
-	width: 266px;
-}
-
-.thumbnail {
-	height: 30px;
-	width: 30px;
-	display: inline;
-}
-
-.post-owner {
-	display: inline;
-}
-
-.date-time {
-	font-size: 0.7em;
-}
-
-.card-title{
-	margin-left: 20px;
-	margin-top: 20px;
-	margin-bottom: 0px;
-}
-
-.carousel-item {
-	margin-top: 0px;
-	padding: 0px;
-	border: 0px;
-}
-
-.card-text {
-	margin-top: 10px;
-	font-size: 0.9em;
-}
-
-a {
-	color: gray;
-}
-
-a:hover {
-	color: gray;
 }
