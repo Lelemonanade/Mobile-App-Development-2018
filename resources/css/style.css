@@ -1,3 +1,7 @@
+html {
+    font-size: 0.8rem;
+}
+
 .imagiBG{
     background: url(../images/backgroundImage/backgroundImage.png) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -106,6 +110,8 @@
 
 .post-owner {
     display: inline;
+    font-size: small;
+    color: black;
 }
 
 .date-time {
@@ -113,9 +119,12 @@
 }
 
 .card-title{
+    font-size: large;
+    font-weight: bold;
     margin-left: 20px;
     margin-top: 20px;
     margin-bottom: 0px;
+    color: darkslategrey;
 }
 
 .carousel-item {
@@ -126,7 +135,11 @@
 
 .card-text {
     margin-top: 10px;
-    font-size: 0.9em;
+    font-size: small;
+}
+
+.badge{
+    font-size: smaller;
 }
 
 .card {
@@ -185,11 +198,13 @@
 }
 
 .btnPost{
-    width: 80%;
+    width: 120%;
+    margin: 5%;
     color: white;
     font-weight: bold;
     padding: 2%;
     font-family: "Lato";
+    font-size: large;
 
 }
 
