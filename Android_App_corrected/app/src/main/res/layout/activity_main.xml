@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundimg"
+    android:maxWidth="450dp"
+    android:minWidth="360dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/projectbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:background="#f26f5f"
+            android:text="@string/project"
+            android:onClick="notDeveloped"
+            android:textColor="#ffffff" />
+
+
+        <Button
+            android:id="@+id/communitybtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:background="#00aaad"
+            android:text="@string/community"
+            android:onClick="goToCommunity"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/learnbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:background="#596bb3"
+            android:text="@string/learn"
+            android:onClick="notDeveloped"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/connectbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_weight="1"
+            android:background="#f7b118"
+            android:text="@string/connect"
+            android:onClick="notDeveloped"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

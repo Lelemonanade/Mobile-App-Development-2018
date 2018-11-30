@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">imagiLabs</string>
+    <string name="Project">Project</string>
+    <string name="community">Community</string>
+    <string name="project">Project</string>
+    <string name="learn">Learn</string>
+    <string name="connect">Connect</string>
+    <string name="notdeveloped">This option is not yet developed</string>
+</resources>
