@@ -5,5 +5,14 @@
     <string name="project">Project</string>
     <string name="learn">Learn</string>
     <string name="connect">Connect</string>
+    <string name="user1feed">Mimmi Maier</string>
+    <string name="user2feed">Linda Lindgren</string>
+    <string name ="posttime">5 Minutes ago</string>
     <string name="notdeveloped">This option is not yet developed</string>
+    <string name="imagi1">imagi1</string>
+    <string name="type_project_title">Type Project Title</string>
+    <string name="add_description">Add Description</string>
+    <string name="share">Share</string>
+    <string name="add_tags">Add Tags</string>
+
 </resources>
