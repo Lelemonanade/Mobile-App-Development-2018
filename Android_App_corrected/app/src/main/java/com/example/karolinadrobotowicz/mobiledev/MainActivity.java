@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToCommunity(View view) {
-        Intent intent = new Intent(this, communityscreen.class);
+        Intent intent = new Intent(this, activity_community.class);
         startActivity(intent);
     }
 
