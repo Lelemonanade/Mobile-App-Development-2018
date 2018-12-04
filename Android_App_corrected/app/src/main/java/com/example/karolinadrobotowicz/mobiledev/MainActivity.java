@@ -26,12 +26,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CommunityActivity.class);
         startActivity(intent);
     }
-
-    public void shortcutAddDescription(View view){
-        //TODO remove
-        Log.d("switch", "called method shortcut add description");
-        Intent intent = new Intent(this, AddDescription.class);
-        startActivity(intent);
-    }
+    
 
 }
