@@ -1,6 +1,7 @@
 package com.example.karolinadrobotowicz.mobiledev;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -33,6 +34,17 @@ public class AddDescription extends Activity {
 
         //Log.d("titletext", title);
 
+    }
+
+    public void goToCommunity(View view) {
+        Log.d("switch", "called method shortcut go to Community");
+        postProject(view);
+
+        //CommunityCard newPost = new CommunityCard(1);
+        Intent intent = new Intent(this, CommunityActivity.class);
+
+        //intent.putExtra("newPost")
+        startActivity(intent);
     }
 
 }
