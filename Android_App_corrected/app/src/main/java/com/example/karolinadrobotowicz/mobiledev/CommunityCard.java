@@ -16,6 +16,20 @@ public class CommunityCard {
     //TODO tags as an array
     private String tags;
 
+    /**
+     * The contstructor which creates an already filled demo card
+     */
+    public CommunityCard(){
+        this.cardType = cardType;
+        this.userName = "Mimi";
+        this.userImagePath = "@drawable/user1";
+        this.projTitle = "lorem ipsum";
+        this.description = "dorimo dorimi fahita";
+        this.tags = "lol, bmc, amazing";
+        this.imagePath = "@drawable/imagi1";
+        setTime();
+    }
+
     public CommunityCard(int cardType){
         this.cardType = cardType;
         this.userName = "Mimi";
@@ -48,6 +62,38 @@ public class CommunityCard {
         this.description = description;
         this.tags = tags;
         setTime();
+    }
+
+    public String getProjTitle(){
+        return this.projTitle;
+    }
+
+    public String getUserName(){
+        return this.userName;
+    }
+
+    public String getTime(){
+        return this.time;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+
+    public String getImagePath(){
+        return this.imagePath;
+    }
+
+    public String getUserImagePath(){
+        return this.userImagePath;
+    }
+
+    public String getCodePath(){
+        return this.codePath;
+    }
+
+    public String getTags(){
+        return this.tags;
     }
 
 }

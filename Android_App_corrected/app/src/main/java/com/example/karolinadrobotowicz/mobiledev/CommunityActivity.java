@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -14,9 +15,8 @@ public class CommunityActivity extends AppCompatActivity {
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
-    private static ArrayList<CommunityCard> data;
-    static View.OnClickListener myOnClickListener;
-    private static ArrayList<Integer> removedItems;
+    //static View.OnClickListener myOnClickListener;
+    //private static ArrayList<Integer> removedItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,22 +30,43 @@ public class CommunityActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        data = new ArrayList<CommunityCard>();
-        /*for (int i = 0; i < MyData.nameArray.length; i++) {
-            data.add(new DataModel(
-                    MyData.nameArray[i],
-                    MyData.versionArray[i],
-                    MyData.id_[i],
-                    MyData.drawableArray[i]
-            ));
-        }*/
+        // Code to Add an item with default animation
+        //((MyRecyclerViewAdapter) mAdapter).addItem(obj, index);
 
-        removedItems = new ArrayList<Integer>();
+        // Code to remove an item with default animation
+        //((MyRecyclerViewAdapter) mAdapter).deleteItem(index);
 
-        adapter = new CardsAdapter(data);
+        //removedItems = new ArrayList<Integer>();
+
+        adapter = new CardsAdapter(getData());
         recyclerView.setAdapter(adapter);
 
     }
+
+
+
+    /*
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((CardsAdapter) adapter).setOnItemClickListener(new CardsAdapter()
+                .MyClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Log.i(LOG_TAG, " Clicked on Item " + position);
+            }
+        });
+    }*/
+
+    private ArrayList<CommunityCard> getData(){
+        ArrayList data = new ArrayList<CommunityCard>();
+        for(int i=0; i <2; i++){
+            data.add(i, new CommunityCard());
+        }
+        return data;
+    }
+
+
 
 
 }
