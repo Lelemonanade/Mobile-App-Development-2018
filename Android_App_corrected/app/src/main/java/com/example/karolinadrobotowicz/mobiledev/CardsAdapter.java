@@ -1,23 +1,16 @@
 package com.example.karolinadrobotowicz.mobiledev;
 
-import android.content.Context;
-import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 import java.util.List;
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder> {
 
-    private List<Community_card> dataSet;
+    private List<CommunityCard> dataSet;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         /*public TextView title, count;
@@ -32,7 +25,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
         }
     }
 
-    public CardsAdapter(List<Community_card> data) {
+    public CardsAdapter(List<CommunityCard> data) {
         this.dataSet = data;
     }
 

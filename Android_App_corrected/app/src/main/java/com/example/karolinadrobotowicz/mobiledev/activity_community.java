@@ -14,7 +14,7 @@ public class activity_community extends AppCompatActivity {
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
-    private static ArrayList<Community_card> data;
+    private static ArrayList<CommunityCard> data;
     static View.OnClickListener myOnClickListener;
     private static ArrayList<Integer> removedItems;
 
@@ -30,7 +30,7 @@ public class activity_community extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        data = new ArrayList<Community_card>();
+        data = new ArrayList<CommunityCard>();
         /*for (int i = 0; i < MyData.nameArray.length; i++) {
             data.add(new DataModel(
                     MyData.nameArray[i],
