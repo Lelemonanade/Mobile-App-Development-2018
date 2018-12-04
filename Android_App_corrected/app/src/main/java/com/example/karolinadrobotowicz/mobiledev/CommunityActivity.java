@@ -1,5 +1,6 @@
 package com.example.karolinadrobotowicz.mobiledev;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -43,6 +44,12 @@ public class CommunityActivity extends AppCompatActivity {
 
     }
 
+    public void goToCamera(View view) {
+        Log.d("switch", "called method shortcut go to Camera");
+
+        Intent intent = new Intent(this, CameraActivity.class);
+        startActivity(intent);
+    }
 
 
     /*
