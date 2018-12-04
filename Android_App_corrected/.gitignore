@@ -29,7 +29,9 @@ local.properties
 .idea/assetWizardSettings.xml
 .idea/dictionaries
 .idea/caches
+.idea/caches/build_file_checksums.serv
 *.iml
+
 
 # OS-specific files
 .DS_Store
@@ -54,3 +56,5 @@ captures/
 bin/
 gen/
 out/
+
+app/src/main/AndroidManifest.xml
