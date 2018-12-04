@@ -8,7 +8,8 @@
 
     <item
         android:id="@+id/navigation_take_picture"
-        android:icon="@drawable/ic_dashboard_black_24dp"/>
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_take_picture" />
 
     <item
         android:id="@+id/navigation_next"
