@@ -9,7 +9,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class activity_community extends AppCompatActivity {
+public class CommunityActivity extends AppCompatActivity {
 
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
