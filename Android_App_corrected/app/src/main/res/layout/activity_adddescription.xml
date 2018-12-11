@@ -39,7 +39,7 @@
                 android:layout_toRightOf="@+id/imageView6"
                 android:ems="10"
                 android:inputType="textMultiLine"
-                android:text="@string/type_project_title" />
+                android:hint="Type Project Title"/>
 
             <EditText
                 android:id="@+id/projectDescription"
@@ -51,7 +51,7 @@
                 android:layout_marginTop="48dp"
                 android:ems="10"
                 android:inputType="textMultiLine"
-                android:text="@string/add_description" />
+                android:hint="Add Description"/>
 
             <EditText
                 android:id="@+id/projectTags"
@@ -63,7 +63,7 @@
                 android:layout_marginTop="52dp"
                 android:ems="10"
                 android:inputType="textMultiLine"
-                android:text="@string/add_tags" />
+                android:hint="Add Tags"/>
 
             <Button
                 android:id="@+id/buttonShare"
