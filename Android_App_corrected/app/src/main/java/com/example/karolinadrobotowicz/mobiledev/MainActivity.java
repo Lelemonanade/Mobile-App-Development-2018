@@ -26,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CommunityActivity.class);
         startActivity(intent);
     }
-    
+
+    public void goToAddDescription(View view) {
+        Log.d("switch", "called method shortcut go to Camera");
+
+        //CommunityCard newPost = new CommunityCard(1);
+        Intent intent = new Intent(this, AddDescription.class);
+
+        //intent.putExtra("newPost")
+        startActivity(intent);
+    }
 
 }
