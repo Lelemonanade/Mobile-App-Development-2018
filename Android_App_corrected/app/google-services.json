@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "947259614241",
+    "firebase_url": "https://imagilabs-f6dae.firebaseio.com",
+    "project_id": "imagilabs-f6dae",
+    "storage_bucket": "imagilabs-f6dae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947259614241:android:2087e83035fb14e1",
+        "android_client_info": {
+          "package_name": "com.example.karolinadrobotowicz.mobiledev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947259614241-5ov3iav3qsspn6to6gsns3d3p8pgf33r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.karolinadrobotowicz.mobiledev",
+            "certificate_hash": "b513951623b0a185609440a54908d7d7fca0633d"
+          }
+        },
+        {
+          "client_id": "947259614241-77ct304t2rb3vur2t24ga07ikdljftoj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDffn-ZmXeawojCCGIebo6bV5GIlrhk_Mk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947259614241-77ct304t2rb3vur2t24ga07ikdljftoj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
