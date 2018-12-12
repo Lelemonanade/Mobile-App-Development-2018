@@ -1,6 +1,7 @@
 package com.example.karolinadrobotowicz.mobiledev;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,12 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder> {
 
-    private static String LOG_TAG = "MyRecyclerViewAdapter";
+    private static String LOG_TAG = "CardsAdapter";
     private ArrayList<CommunityCard> dataSet;
     // private static MyClickListener myClickListener;
 
@@ -35,6 +38,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
 
         public MyViewHolder(View view) {
             super(view);
+            Log.d(LOG_TAG, "onCreation");
             userName = (TextView) itemView.findViewById(R.id.username);
             time = (TextView) itemView.findViewById(R.id.postTime);
             description = (TextView) itemView.findViewById(R.id.postDescription);
@@ -45,21 +49,26 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
 
     public CardsAdapter(ArrayList<CommunityCard> data) {
         this.dataSet = data;
+        Log.d(LOG_TAG, "dataSet");
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.d(LOG_TAG, "onCreateHolderBefore");
+
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.community_card, parent, false);
 
         //view.setOnClickListener(MainActivity.myOnClickListener);
 
-        return new MyViewHolder(itemView);
+        MyViewHolder myViewHolder = new MyViewHolder(itemView);
+        return myViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
+        Log.d(LOG_TAG, "onBindBefore");
         // TODO how to add images
         //holder.userImage = dataSet.get(position).getUserImagePath();
         holder.userName.setText(dataSet.get(position).getUserName());
@@ -67,6 +76,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
         holder.time.setText(dataSet.get(position).getTime());
         //holder.projImage.setImageURI(dataSet.get(position).getUserImagePath());
         //holder.projImage.setImageURI(dataSet.get(position).getUserImagePath());
+        Log.d(LOG_TAG, "onBindAfter");
 
     }
 

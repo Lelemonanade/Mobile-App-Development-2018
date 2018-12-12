@@ -1,10 +1,13 @@
 package com.example.karolinadrobotowicz.mobiledev;
 
+import android.util.Log;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CommunityCard {
 
+    private static String LOG_TAG = "CommunityCard";
     private String projTitle;
     private String userName;
     private String time;
@@ -20,6 +23,7 @@ public class CommunityCard {
      * The contstructor which creates an already filled demo card
      */
     public CommunityCard(){
+        Log.d(LOG_TAG, "onCardCreation");
         this.cardType = cardType;
         this.userName = "Mimi";
         this.userImagePath = "@drawable/user1";
@@ -31,6 +35,7 @@ public class CommunityCard {
     }
 
     public CommunityCard(int cardType){
+        Log.d(LOG_TAG, "onCardCreation with the type");
         this.cardType = cardType;
         this.userName = "Mimi";
         this.userImagePath = "@drawable/user1";
@@ -41,6 +46,8 @@ public class CommunityCard {
     }
 
     public CommunityCard(int cardType, String userName, String userImagePath){
+
+        Log.d(LOG_TAG, "onCreation with the Type and name");
         this.cardType = cardType;
         this.userName = userName;
         this.userImagePath = userImagePath;
@@ -48,16 +55,22 @@ public class CommunityCard {
     }
 
     public void setTime(){
+
+        Log.d(LOG_TAG, "setTime");
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         Date date = new Date();
         this.time = formatter.format(date);
     }
 
     public void setImagePath(String imagePath){
+
+        Log.d(LOG_TAG, "SetImagePAth");
         this.imagePath = imagePath;
     }
 
     public void setTexts(String projTitle, String description, String tags){
+
+        Log.d(LOG_TAG, "setText");
         this.projTitle = projTitle;
         this.description = description;
         this.tags = tags;
