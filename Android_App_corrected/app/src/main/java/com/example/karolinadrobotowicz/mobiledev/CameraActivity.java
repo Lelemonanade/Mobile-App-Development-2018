@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class CameraActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
+    //private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -21,13 +21,13 @@ public class CameraActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_back:
-                    mTextMessage.setText(R.string.title_back);
+                    //mTextMessage.setText(R.string.title_back);
                     return true;
                 case R.id.navigation_take_picture:
-                    mTextMessage.setText(R.string.title_take_picture);
+                    //mTextMessage.setText(R.string.title_take_picture);
                     return true;
                 case R.id.navigation_next:
-                    mTextMessage.setText(R.string.title_next);
+                    //mTextMessage.setText(R.string.title_next);
                     goToAddDescription();
                     return true;
             }
@@ -40,7 +40,7 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+        //mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
