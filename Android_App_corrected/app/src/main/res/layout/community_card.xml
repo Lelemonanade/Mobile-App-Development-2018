@@ -1,55 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         card_view:cardBackgroundColor="@android:color/transparent"
         card_view:cardCornerRadius="4dp"
         card_view:cardElevation="10dp"
         card_view:contentPadding="10dp">
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/userImage"
-                android:layout_width="63dp"
-                android:layout_height="59dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:contentDescription="@string/user1feed"
-                card_view:srcCompat="@drawable/user1" />
-
-
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="195dp"
-                android:layout_height="42dp"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/userImage"
-                android:layout_toRightOf="@+id/userImage"
-                android:text="@string/user1feed"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/postTime"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/username"
-                android:layout_toEndOf="@+id/userImage"
-                android:layout_toRightOf="@+id/userImage"
-                android:text="@string/posttime" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/userImage"
+                    android:layout_width="63dp"
+                    android:layout_height="59dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:contentDescription="@string/user1feed"
+                    card_view:srcCompat="@drawable/user1"
+                    tools:ignore="ObsoleteLayoutParam" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="195dp"
+                        android:layout_height="42dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/userImage"
+                        android:layout_toRightOf="@+id/userImage"
+                        android:text="@string/user1feed"
+                        android:textSize="30sp"
+                        tools:ignore="ObsoleteLayoutParam" />
+
+                    <TextView
+                        android:id="@+id/postTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/username"
+                        android:layout_toEndOf="@+id/userImage"
+                        android:layout_toRightOf="@+id/userImage"
+                        android:text="@string/posttime"
+                        tools:ignore="ObsoleteLayoutParam" />
+
+                </LinearLayout>
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/postImage"
@@ -62,33 +78,107 @@
                 android:layout_marginLeft="0dp"
                 android:layout_marginTop="9dp"
                 android:contentDescription="@string/imagi1"
-                card_view:srcCompat="@drawable/imagi1" />
+                card_view:srcCompat="@drawable/imagi1"
+                tools:ignore="ObsoleteLayoutParam" />
 
-            <TextView
-                android:id="@+id/postDescription"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/postImage"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="52dp"
-                android:layout_marginLeft="52dp"
-                android:layout_marginTop="5dp"
-                android:text="My first imagelabs project ! It was so fun :)" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/postDescription3"
+                <TextView
+                    android:id="@+id/postDescription3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/postImage"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="mimmi"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+                <TextView
+                    android:id="@+id/postDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/postImage"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="My first imagelabs project ! It was so fun :)"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/postImage"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="6dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginTop="4dp"
-                android:text="mimmi"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textStyle="bold" />
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="10dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:paddingLeft="0dp"
+                tools:ignore="RtlHardcoded,RtlSymmetry">
+
+                <ImageView
+                    android:id="@+id/icon_like"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="0dp"
+                    card_view:srcCompat="@drawable/outline_thumb_up_black_18dp"
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
+
+                <ImageView
+                    android:id="@+id/icon_comment"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="0dp"
+                    card_view:srcCompat="@drawable/baseline_comment_black_18dp"
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
+
+                <ImageView
+                    android:id="@+id/icon_share"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignTop="@+id/icon_like"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="0dp"
+                    card_view:srcCompat="@drawable/baseline_share_black_18dp"
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/nb_likes"
@@ -96,50 +186,15 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/postImage"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="66dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="5dp"
                 android:text="6 likes"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:layout_marginLeft="4dp"
-                android:layout_alignParentLeft="true" />
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="7dp"
-                android:layout_marginLeft="7dp"
-                android:layout_marginBottom="92dp"
-                card_view:srcCompat="@drawable/outline_thumb_up_black_18dp" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="48dp"
-                android:layout_marginLeft="48dp"
-                android:layout_marginBottom="92dp"
-                card_view:srcCompat="@drawable/baseline_comment_black_18dp" />
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/imageView3"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="92dp"
-                android:layout_marginLeft="92dp"
-                android:layout_marginTop="0dp"
-                card_view:srcCompat="@drawable/baseline_share_black_18dp" />
-
-        </RelativeLayout>
+        </LinearLayout>
 
 
     </android.support.v7.widget.CardView>
