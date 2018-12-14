@@ -7,8 +7,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 public class CameraActivity extends AppCompatActivity {
 
@@ -49,7 +47,7 @@ public class CameraActivity extends AppCompatActivity {
         Log.d("switch", "called method shortcut go to Camera");
 
         //CommunityCard newPost = new CommunityCard(1);
-        Intent intent = new Intent(this, AddDescription.class);
+        Intent intent = new Intent(this, AddDescriptionActivity.class);
 
         //intent.putExtra("newPost")
         startActivity(intent);
