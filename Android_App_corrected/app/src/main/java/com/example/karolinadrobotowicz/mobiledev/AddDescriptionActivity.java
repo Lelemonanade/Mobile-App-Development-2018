@@ -117,7 +117,7 @@ public class AddDescriptionActivity extends AppCompatActivity {
                         } }); } });*/
 
         }
-        
+
 
         postProject(view);
 
