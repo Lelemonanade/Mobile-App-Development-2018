@@ -75,11 +75,12 @@ public class CameraActivity extends Activity {
         //CommunityCard newPost = new CommunityCard(1);
         final Intent intent = new Intent(this, AddDescriptionActivity.class);
         //TODO change to retrieving the taken photo
-        photo = new File(getFilesDir(), "foo.jpg");
-        intent.setData(Uri.fromFile(photo));
+        //photo = new File(getFilesDir(), "foo.jpg");
+        //intent.setData(Uri.fromFile(photo));
 
-        // OR Uri pictureUri = Uri.parse("file://my_picture");
-        // intent.setData(pictureUri);
+        // OR
+        Uri pictureUri = Uri.parse("android.resource://com.example.karolinadrobotowicz.mobiledev/"+R.drawable.imagi2);
+        intent.setData(pictureUri);
 
         startActivity(intent);
     }

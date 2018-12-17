@@ -43,6 +43,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
             tags = (TextView) itemView.findViewById(R.id.projectTags);
             userName = (TextView) itemView.findViewById(R.id.username);
             time = (TextView) itemView.findViewById(R.id.postTime);
+            projTitle = (TextView) itemView.findViewById(R.id.projectTitle);
             description = (TextView) itemView.findViewById(R.id.postDescription);
             userImage = (ImageView) itemView.findViewById(R.id.userImage);
             projImage = (ImageView) itemView.findViewById(R.id.postImage);
