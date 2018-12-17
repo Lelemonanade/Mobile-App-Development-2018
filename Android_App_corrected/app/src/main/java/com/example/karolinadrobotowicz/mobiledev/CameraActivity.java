@@ -1,6 +1,7 @@
 package com.example.karolinadrobotowicz.mobiledev;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,9 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
+import java.io.File;
+
 public class CameraActivity extends AppCompatActivity {
 
     //private TextView mTextMessage;
+    private File photo;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -47,9 +51,18 @@ public class CameraActivity extends AppCompatActivity {
         Log.d("switch", "called method shortcut go to Camera");
 
         //CommunityCard newPost = new CommunityCard(1);
-        Intent intent = new Intent(this, AddDescriptionActivity.class);
+        final Intent intent = new Intent(this, AddDescriptionActivity.class);
+        intent.setType("image/jpg");
+        //TODO change to retrieving the taken photo
+        photo = new File(getFilesDir(), "foo.jpg");
+        intent.putExtra("photo", Uri.fromFile(photo));
 
-        //intent.putExtra("newPost")
+        // IF Uri only
+        //Uri pictureUri = Uri.parse("file://my_picture");
+        //intent.putExtra("photoUri, pictureUri");
+
+        //TODO add code
+
         startActivity(intent);
     }
 
