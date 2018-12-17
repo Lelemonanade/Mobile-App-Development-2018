@@ -28,9 +28,9 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
 
         TextView userName;
         //TODO add proj title
-        // TextView projTitle;
+        TextView projTitle;
         // TODO add tags
-        //TextView tags;
+        TextView tags;
         TextView time;
         TextView description;
         ImageView userImage;
@@ -39,6 +39,8 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
         public MyViewHolder(View view) {
             super(view);
             Log.d(LOG_TAG, "onCreation");
+            projTitle = (TextView) itemView.findViewById(R.id.projectTitle);
+            tags = (TextView) itemView.findViewById(R.id.projectTags);
             userName = (TextView) itemView.findViewById(R.id.username);
             time = (TextView) itemView.findViewById(R.id.postTime);
             description = (TextView) itemView.findViewById(R.id.postDescription);
@@ -74,6 +76,8 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
         holder.userName.setText(dataSet.get(position).getUserName());
         holder.description.setText(dataSet.get(position).getDescription());
         holder.time.setText(dataSet.get(position).getTime());
+        holder.projTitle.setText(dataSet.get(position).getProjTitle());
+        holder.tags.setText(dataSet.get(position).getTags());
         //holder.projImage.setImageURI(dataSet.get(position).getUserImagePath());
         //holder.projImage.setImageURI(dataSet.get(position).getUserImagePath());
         Log.d(LOG_TAG, "onBindAfter");
