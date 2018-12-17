@@ -60,7 +60,7 @@
             android:layout_weight="1"
             android:background="#596bb3"
             android:text="@string/learn"
-            android:onClick="notDeveloped"
+            android:onClick="goToAddDescription"
             android:textColor="#ffffff" />
 
         <Button
