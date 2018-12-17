@@ -78,7 +78,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
         holder.description.setText(dataSet.get(position).getDescription());
         holder.time.setText(dataSet.get(position).getTime());
         holder.projTitle.setText(dataSet.get(position).getProjTitle());
-        holder.tags.setText(dataSet.get(position).getTags());
+        //holder.tags.setText(dataSet.get(position).getTags());
         //holder.projImage.setImageURI(dataSet.get(position).getUserImagePath());
         //holder.projImage.setImageURI(dataSet.get(position).getUserImagePath());
         Log.d(LOG_TAG, "onBindAfter");

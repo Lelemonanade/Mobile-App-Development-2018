@@ -10,10 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginBottom="5dp"
         card_view:cardBackgroundColor="@android:color/transparent"
         card_view:cardCornerRadius="4dp"
-        card_view:cardElevation="0dp"
+        card_view:cardElevation="10dp"
         card_view:contentPadding="10dp">
 
         <LinearLayout
@@ -24,7 +23,6 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="8dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -72,10 +70,12 @@
             <ImageView
                 android:id="@+id/postImage"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="265dp"
                 android:layout_below="@+id/postTime"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
                 android:layout_marginTop="9dp"
                 android:contentDescription="@string/imagi1"
                 card_view:srcCompat="@drawable/imagi1"
@@ -87,7 +87,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/projectTitle"
+                    android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/postImage"
@@ -119,23 +119,7 @@
                     android:text="My first imagelabs project ! It was so fun :)"
                     tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
-
-
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/projectTags"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/postDescription"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:text="tags"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
-
 
             <LinearLayout
                 android:layout_width="wrap_content"
