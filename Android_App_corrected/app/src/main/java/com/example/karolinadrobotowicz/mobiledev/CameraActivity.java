@@ -61,7 +61,7 @@ public class CameraActivity extends Activity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        CameraPreview mPreview= new CameraPreview(this);
+        CameraPreview mPreview= new CameraPreview(this.getApplicationContext(), this);
 
         FrameLayout layout = (FrameLayout)findViewById(R.id.cameraFrame);
         layout.addView(mPreview);
@@ -82,6 +82,10 @@ public class CameraActivity extends Activity {
         // intent.setData(pictureUri);
 
         startActivity(intent);
+    }
+
+    public void capture(){
+        mPreview.capture();
     }
 
 
