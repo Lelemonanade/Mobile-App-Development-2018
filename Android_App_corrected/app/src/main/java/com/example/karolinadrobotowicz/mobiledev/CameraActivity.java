@@ -1,18 +1,33 @@
 package com.example.karolinadrobotowicz.mobiledev;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class CameraActivity extends AppCompatActivity {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import static android.app.PendingIntent.getActivity;
+
+public class CameraActivity extends Activity {
 
     private TextView mTextMessage;
+
+    private CameraPreview mPreview;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -43,7 +58,14 @@ public class CameraActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        CameraPreview mPreview= new CameraPreview(this);
+
+        FrameLayout layout = (FrameLayout)findViewById(R.id.cameraFrame);
+        layout.addView(mPreview);
     }
+
+
 
     public void goToAddDescription() {
         Log.d("switch", "called method shortcut go to Camera");
@@ -54,5 +76,6 @@ public class CameraActivity extends AppCompatActivity {
         //intent.putExtra("newPost")
         startActivity(intent);
     }
+
 
 }
