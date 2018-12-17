@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "947259614241-jjkdd33biusfl8hnkukfeh0orh3p8gnu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.karolinadrobotowicz.mobiledev",
+            "certificate_hash": "dbb602223013e98ab3e83a76b186d890f5042da9"
+          }
+        },
+        {
           "client_id": "947259614241-77ct304t2rb3vur2t24ga07ikdljftoj.apps.googleusercontent.com",
           "client_type": 3
         }
