@@ -3,6 +3,7 @@ package com.example.karolinadrobotowicz.mobiledev;
 import android.app.Activity;
 import android.content.Intent;
 import android.hardware.Camera;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -25,7 +26,8 @@ import static android.app.PendingIntent.getActivity;
 
 public class CameraActivity extends Activity {
 
-    private TextView mTextMessage;
+    //private TextView mTextMessage;
+    private File photo;
 
     private CameraPreview mPreview;
 
@@ -36,13 +38,13 @@ public class CameraActivity extends Activity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_back:
-                    mTextMessage.setText(R.string.title_back);
+                    //mTextMessage.setText(R.string.title_back);
                     return true;
                 case R.id.navigation_take_picture:
-                    mTextMessage.setText(R.string.title_take_picture);
+                    //mTextMessage.setText(R.string.title_take_picture);
                     return true;
                 case R.id.navigation_next:
-                    mTextMessage.setText(R.string.title_next);
+                    //mTextMessage.setText(R.string.title_next);
                     goToAddDescription();
                     return true;
             }
@@ -55,7 +57,7 @@ public class CameraActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+        //mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -71,9 +73,14 @@ public class CameraActivity extends Activity {
         Log.d("switch", "called method shortcut go to Camera");
 
         //CommunityCard newPost = new CommunityCard(1);
-        Intent intent = new Intent(this, AddDescription.class);
+        final Intent intent = new Intent(this, AddDescriptionActivity.class);
+        //TODO change to retrieving the taken photo
+        photo = new File(getFilesDir(), "foo.jpg");
+        intent.setData(Uri.fromFile(photo));
 
-        //intent.putExtra("newPost")
+        // OR Uri pictureUri = Uri.parse("file://my_picture");
+        // intent.setData(pictureUri);
+
         startActivity(intent);
     }
 
