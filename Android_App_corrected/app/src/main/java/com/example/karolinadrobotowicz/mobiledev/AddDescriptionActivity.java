@@ -37,6 +37,8 @@ public class AddDescriptionActivity extends AppCompatActivity {
     private EditText descriptionField;
     private EditText tagsField;
 
+    private Uri photoUri;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,14 @@ public class AddDescriptionActivity extends AppCompatActivity {
         //TODO what about users?
         mCurrentUser = mAuth.getCurrentUser();
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
+
+        //TODO change depending on what are we sending
+        // Receive passed extras from previous activities
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            photoUri = extras.getString("photo");
+            //The key argument here must match that used in the other activity
+        }
 
     }
 
@@ -87,34 +97,29 @@ public class AddDescriptionActivity extends AppCompatActivity {
 
             StorageReference filepath = storage.child("post_images").child(uri.getLastPathSegment());
 
-            /* IMAGE AND POST UPLOAD -> RECEIVE THE IMAGE FROM THE PREVIOUS POST FIRST
-            filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            //getting the post image download url
+            final Uri downloadUrl = taskSnapshot.getDownloadUrl();
+            Toast.makeText(getApplicationContext(), "Succesfully Uploaded", Toast.LENGTH_SHORT).show();
+            final DatabaseReference newPost = databaseRef.push();
+            //adding post contents to database reference
+            mDatabaseUsers.addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    @SuppressWarnings("VisibleForTests")
-                    //getting the post image download url
-                    final Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                    Toast.makeText(getApplicationContext(), "Succesfully Uploaded", Toast.LENGTH_SHORT).show();
-                    final DatabaseReference newPost = databaseRef.push();
-                    //adding post contents to database reference
-                    mDatabaseUsers.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            newPost.child("title").setValue(PostTitle);
-                            newPost.child("desc").setValue(PostDesc);
-                            newPost.child("imageUrl").setValue(downloadUrl.toString());
-                            newPost.child("uid").setValue(mCurrentUser.getUid());
-                            newPost.child("username").setValue(dataSnapshot.child("name").getValue())
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()){
-                                                Intent intent = new Intent(PostActivity.this, MainActivity.class);
-                                                startActivity(intent);
-                                            }}});}
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        } }); } });*/
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    newPost.child("title").setValue(PostTitle);
+                    newPost.child("desc").setValue(PostDesc);
+                    newPost.child("imageUrl").setValue(downloadUrl.toString());
+                    newPost.child("uid").setValue(mCurrentUser.getUid());
+                    newPost.child("username").setValue(dataSnapshot.child("name").getValue())
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Intent intent = new Intent(PostActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                    }}});}
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                } });
 
         }
 

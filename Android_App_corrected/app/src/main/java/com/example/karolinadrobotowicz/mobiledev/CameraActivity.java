@@ -52,16 +52,12 @@ public class CameraActivity extends AppCompatActivity {
 
         //CommunityCard newPost = new CommunityCard(1);
         final Intent intent = new Intent(this, AddDescriptionActivity.class);
-        intent.setType("image/jpg");
         //TODO change to retrieving the taken photo
         photo = new File(getFilesDir(), "foo.jpg");
-        intent.putExtra("photo", Uri.fromFile(photo));
+        intent.setData(Uri.fromFile(photo));
 
-        // IF Uri only
-        //Uri pictureUri = Uri.parse("file://my_picture");
-        //intent.putExtra("photoUri, pictureUri");
-
-        //TODO add code
+        // OR Uri pictureUri = Uri.parse("file://my_picture");
+        // intent.setData(pictureUri);
 
         startActivity(intent);
     }
