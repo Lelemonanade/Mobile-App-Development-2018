@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -11,10 +12,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -60,28 +66,12 @@ public class AddDescriptionActivity extends AppCompatActivity {
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
 
         //TODO change depending on what are we sending
-        // Receive passed extras from previous activities
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            photoUri = extras.getString("photo");
-            //The key argument here must match that used in the other activity
-        }
+        // Receive passed URI of the photo
+        Intent intent = getIntent();
+        photoUri = intent.getData();
 
     }
-
-    protected void postProject(View view){
-
-        String title = titleField.getText().toString();
-        String description = descriptionField.getText().toString();
-        String tags = tagsField.getText().toString();
-
-        String[] tagList = tags.split(" ");
-
-
-        //Log.d("titletext", title);
-
-    }
-
+    
     public void goToCommunity(View view) {
         Log.d("switch", "called method shortcut go to Community");
 
@@ -90,31 +80,33 @@ public class AddDescriptionActivity extends AppCompatActivity {
         final String description = descriptionField.getText().toString().trim();
         final String tags = tagsField.getText().toString().trim();
 
-        String[] tagList = tags.split(" ");
+        final String[] tagList = tags.split(" ");
 
         // do a check for empty fields
         if (!TextUtils.isEmpty(description) && !TextUtils.isEmpty(title)){
 
             StorageReference filepath = storage.child("post_images").child(uri.getLastPathSegment());
 
-            //getting the post image download url
-            final Uri downloadUrl = taskSnapshot.getDownloadUrl();
-            Toast.makeText(getApplicationContext(), "Succesfully Uploaded", Toast.LENGTH_SHORT).show();
-            final DatabaseReference newPost = databaseRef.push();
             //adding post contents to database reference
+            final DatabaseReference newPost = databaseRef.push();
             mDatabaseUsers.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    newPost.child("title").setValue(PostTitle);
-                    newPost.child("desc").setValue(PostDesc);
-                    newPost.child("imageUrl").setValue(downloadUrl.toString());
+                    newPost.child("title").setValue(title);
+                    newPost.child("desc").setValue(description);
+                    newPost.child("tags").setValue(tagList);
+                    newPost.child("imageUrl").setValue(photoUri.toString());
                     newPost.child("uid").setValue(mCurrentUser.getUid());
                     newPost.child("username").setValue(dataSnapshot.child("name").getValue())
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
-                                        Intent intent = new Intent(PostActivity.this, MainActivity.class);
+                                        Intent intent = new Intent(AddDescriptionActivity.this, CommunityActivity.class);
+                                        //TODO check if works
+                                        // closing previous activities
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        //you can also check this one: Intent.FLAG_ACTIVITY_CLEAR_TOP
                                         startActivity(intent);
                                     }}});}
                 @Override
@@ -123,17 +115,6 @@ public class AddDescriptionActivity extends AppCompatActivity {
 
         }
 
-
-        postProject(view);
-
-
-
-
-        //CommunityCard newPost = new CommunityCard(1);
-        Intent intent = new Intent(this, CommunityActivity.class);
-
-        //intent.putExtra("newPost")
-        startActivity(intent);
     }
 
 }
