@@ -18,7 +18,8 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
 
     public CameraPreview(Context context) {
         super(context);
-        safeCameraOpen(0);
+        boolean open = safeCameraOpen();
+        Log.d("switch", "camera opened successfully " + open);
 
         // Install a SurfaceHolder.Callback so we get notified when the
         // underlying surface is created and destroyed.
@@ -71,12 +72,12 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
-    private boolean safeCameraOpen(int id) {
+    private boolean safeCameraOpen() {
         boolean qOpened = false;
 
         try {
             releaseCameraAndPreview();
-            mCamera = Camera.open(id);
+            mCamera = Camera.open();
             qOpened = (mCamera != null);
         } catch (Exception e) {
             //Log.e(getString(R.string.app_name), "failed to open Camera");
