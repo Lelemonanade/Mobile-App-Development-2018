@@ -21,6 +21,38 @@ public class CommunityCard {
     private int cardType; // 0-null, 1-project, 2-question
     private List<String> tags;
 
+    public void setProjTitle(String projTitle) {
+        this.projTitle = projTitle;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setUserImagePath(Uri userImagePath) {
+        this.userImagePath = userImagePath;
+    }
+
+    public void setCodePath(String codePath) {
+        this.codePath = codePath;
+    }
+
+    public void setCardType(int cardType) {
+        this.cardType = cardType;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
     /**
      * The contstructor which creates an already filled demo card
      */
