@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -35,16 +34,16 @@ public class CommunityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_community);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
+        // TODO DEBUG might not connect here?
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Cards");
+
+       /* TODO login
         mAuth = FirebaseAuth.getInstance();
-        // TODO login
-       /* mAuthListener = new FirebaseAuth.AuthStateListener() {
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (mAuth.getCurrentUser()==null){
@@ -72,14 +71,14 @@ public class CommunityActivity extends AppCompatActivity {
                     protected void populateViewHolder(CommunityViewHolder viewHolder, CommunityCard card, int position) {
 
                         //final String post_key = getRef(position).getKey().toString();
-                        viewHolder.setTitle(card.getProjTitle());
-                        viewHolder.setDesc(card.getDescription());
+                        viewHolder.setTitle(card.getTitle());
+                        viewHolder.setDesc(card.getDesc());
                         //TODO add tags
                         // TODO add user image
-                        viewHolder.setImageUrl(card.getImagePath());
-                        viewHolder.setUserName(card.getUserName());
+                        //viewHolder.setImageUrl(Uri.parse(card.getImageUrl()));
+                        viewHolder.setUserName(card.getUsername());
                         // shows null for now
-                        Log.d("CommunityTitle", card.getProjTitle().toString());
+                        Log.d("CommunityTitle", card.getTitle().toString());
 
 
                         /* TODO if we want singleActivity class

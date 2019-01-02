@@ -11,26 +11,34 @@ public class CommunityCard {
 
     private static String LOG_TAG = "CommunityCard";
     private int ID;
-    private String projTitle;
-    private String userName;
+    private String title;
+    private String username;
     private String time;
-    private String description;
-    private Uri imagePath;
+    private String desc;
+    private String imageUrl;
     private Uri userImagePath;
     private String codePath;
-    private int cardType; // 0-null, 1-project, 2-question
+    //private int cardType; // 0-null, 1-project, 2-question
     private List<String> tags;
 
+    public CommunityCard(String title, String username, String desc, String imageUrl, List<String> tags) {
+        this.title = title;
+        this.username = username;
+        this.desc = desc;
+        this.imageUrl = imageUrl;
+        this.tags = tags;
+        setTime();
+    }
 
     public CommunityCard(){
         Log.d(LOG_TAG, "onCardCreation");
         /*this.cardType = cardType;
-        this.userName = "Mimi";
+        this.username = "Mimi";
         this.userImagePath = Uri.parse("android.resource://my.package.name/"+R.drawable.user1);
-        this.projTitle = "lorem ipsum";
-        this.description = "dorimo dorimi fahita";
+        this.title = "lorem ipsum";
+        this.desc = "dorimo dorimi fahita";
         this.tags = "lol, bmc, amazing";
-        this.imagePath = Uri.parse("android.resource://my.package.name/"+R.drawable.imagi1);*/
+        this.imageUrl = Uri.parse("android.resource://my.package.name/"+R.drawable.imagi1);*/
         setTime();
     }
 
@@ -38,39 +46,39 @@ public class CommunityCard {
     public CommunityCard(int cardType){
         Log.d(LOG_TAG, "onCardCreation with the type");
         this.cardType = cardType;
-        this.userName = "Mimi";
-        this.imagePath = Uri.parse("android.resource://my.package.name/"+R.drawable.imagi1);
+        this.username = "Mimi";
+        this.imageUrl = Uri.parse("android.resource://my.package.name/"+R.drawable.imagi1);
         if(cardType == 2){
             // have a path to the image of quesiton mark or only code
         }
         setTime();
     }
 
-    public CommunityCard(int cardType, String userName, Uri userImagePath){
+    public CommunityCard(int cardType, String username, Uri userImagePath){
 
         Log.d(LOG_TAG, "onCreation with the Type and name");
         this.cardType = cardType;
-        this.userName = userName;
+        this.username = username;
         this.userImagePath = userImagePath;
         setTime();
     }*/
 
     // SETTERS
 
-    public void setProjTitle(String projTitle) {
-        this.projTitle = projTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setTime(String time) {
         this.time = time;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public void setUserImagePath(Uri userImagePath) {
@@ -81,9 +89,9 @@ public class CommunityCard {
         this.codePath = codePath;
     }
 
-    public void setCardType(int cardType) {
+    /*public void setCardType(int cardType) {
         this.cardType = cardType;
-    }
+    }*/
 
     public void setTags(List<String> tags) {
         this.tags = tags;
@@ -97,33 +105,33 @@ public class CommunityCard {
         this.time = formatter.format(date);
     }
 
-    public void setImagePath(Uri imagePath){
+    public void setImageUrl(String imageUrl){
 
         Log.d(LOG_TAG, "SetImagePAth");
-        this.imagePath = imagePath;
+        this.imageUrl = imageUrl;
     }
 
 
     //GETTERS
 
-    public String getProjTitle(){
-        return this.projTitle;
+    public String getTitle(){
+        return this.title;
     }
 
-    public String getUserName(){
-        return this.userName;
+    public String getUsername(){
+        return this.username;
     }
 
     public String getTime(){
         return this.time;
     }
 
-    public String getDescription(){
-        return this.description;
+    public String getDesc(){
+        return this.desc;
     }
 
-    public Uri getImagePath(){
-        return this.imagePath;
+    public String getImageUrl(){
+        return this.imageUrl;
     }
 
     public Uri getUserImagePath(){

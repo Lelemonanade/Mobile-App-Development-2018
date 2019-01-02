@@ -17,10 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder> {
 
@@ -82,10 +79,10 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.MyViewHolder
         Log.d(LOG_TAG, "onBindBefore");
         // TODO how to add images
         //holder.userImage = dataSet.get(position).getUserImagePath();
-        holder.userName.setText(dataSet.get(position).getUserName());
-        holder.description.setText(dataSet.get(position).getDescription());
+        holder.userName.setText(dataSet.get(position).getUsername());
+        holder.description.setText(dataSet.get(position).getDesc());
         holder.time.setText(dataSet.get(position).getTime());
-        holder.projTitle.setText(dataSet.get(position).getProjTitle());
+        holder.projTitle.setText(dataSet.get(position).getTitle());
         //holder.tags.setText(dataSet.get(position).getTags());
         //holder.projImage.setImageURI(dataSet.get(position).getUserImagePath());
         //holder.projImage.setImageURI(dataSet.get(position).getUserImagePath());
