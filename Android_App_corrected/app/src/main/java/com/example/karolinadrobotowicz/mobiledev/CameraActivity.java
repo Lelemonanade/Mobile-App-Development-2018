@@ -42,7 +42,8 @@ public class CameraActivity extends Activity {
                     return true;
                 case R.id.navigation_take_picture:
                     //mTextMessage.setText(R.string.title_take_picture);
-
+                    Log.d("foto", "navigation listener");
+                    mPreview.capture();
                     return true;
                 case R.id.navigation_next:
                     //mTextMessage.setText(R.string.title_next);
@@ -58,11 +59,13 @@ public class CameraActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
+        Log.d("foto", "camera activity creation");
+
         //mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        CameraPreview mPreview= new CameraPreview(this.getApplicationContext(), this);
+        mPreview= new CameraPreview(this.getApplicationContext(), this);
 
         FrameLayout layout = (FrameLayout)findViewById(R.id.cameraFrame);
         layout.addView(mPreview);
@@ -74,20 +77,15 @@ public class CameraActivity extends Activity {
         Log.d("switch", "called method shortcut go to Camera");
 
         //CommunityCard newPost = new CommunityCard(1);
+
+
         final Intent intent = new Intent(this, AddDescriptionActivity.class);
         //TODO change to retrieving the taken photo
-        //photo = new File(getFilesDir(), "foo.jpg");
-        //intent.setData(Uri.fromFile(photo));
 
-        // OR
-        Uri pictureUri = Uri.parse("android.resource://com.example.karolinadrobotowicz.mobiledev/"+R.drawable.imagi2);
+        Uri pictureUri = Uri.parse("android.resource://com.example.karolinadrobotowicz.mobiledev/"+R.drawable.ic_image_placeholder);
         intent.setData(pictureUri);
 
         startActivity(intent);
-    }
-
-    public void capture(){
-        mPreview.capture();
     }
 
 
