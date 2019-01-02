@@ -30,6 +30,7 @@ local.properties
 .idea/dictionaries
 .idea/caches
 .idea/caches/build_file_checksums.serv
+.idea/runConfigurations.xml
 *.iml
 
 
