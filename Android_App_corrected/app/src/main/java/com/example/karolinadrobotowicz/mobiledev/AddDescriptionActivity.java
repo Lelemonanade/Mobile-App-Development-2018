@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -75,6 +76,8 @@ public class AddDescriptionActivity extends AppCompatActivity {
         // Receive passed URI of the photo
         Intent intent = getIntent();
         uri = intent.getData();
+        ImageView imageView = (ImageView) findViewById(R.id.imageView6);
+        imageView.setImageURI(Uri.parse(uri.toString()));
 
     }
 

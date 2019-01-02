@@ -42,6 +42,7 @@ public class CameraActivity extends Activity {
                     return true;
                 case R.id.navigation_take_picture:
                     //mTextMessage.setText(R.string.title_take_picture);
+
                     return true;
                 case R.id.navigation_next:
                     //mTextMessage.setText(R.string.title_next);
