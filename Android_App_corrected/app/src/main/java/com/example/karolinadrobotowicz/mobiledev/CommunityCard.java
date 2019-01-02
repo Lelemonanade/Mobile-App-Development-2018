@@ -21,6 +21,42 @@ public class CommunityCard {
     private int cardType; // 0-null, 1-project, 2-question
     private List<String> tags;
 
+
+    public CommunityCard(){
+        Log.d(LOG_TAG, "onCardCreation");
+        /*this.cardType = cardType;
+        this.userName = "Mimi";
+        this.userImagePath = Uri.parse("android.resource://my.package.name/"+R.drawable.user1);
+        this.projTitle = "lorem ipsum";
+        this.description = "dorimo dorimi fahita";
+        this.tags = "lol, bmc, amazing";
+        this.imagePath = Uri.parse("android.resource://my.package.name/"+R.drawable.imagi1);*/
+        setTime();
+    }
+
+    /* TODO check if needed
+    public CommunityCard(int cardType){
+        Log.d(LOG_TAG, "onCardCreation with the type");
+        this.cardType = cardType;
+        this.userName = "Mimi";
+        this.imagePath = Uri.parse("android.resource://my.package.name/"+R.drawable.imagi1);
+        if(cardType == 2){
+            // have a path to the image of quesiton mark or only code
+        }
+        setTime();
+    }
+
+    public CommunityCard(int cardType, String userName, Uri userImagePath){
+
+        Log.d(LOG_TAG, "onCreation with the Type and name");
+        this.cardType = cardType;
+        this.userName = userName;
+        this.userImagePath = userImagePath;
+        setTime();
+    }*/
+
+    // SETTERS
+
     public void setProjTitle(String projTitle) {
         this.projTitle = projTitle;
     }
@@ -53,41 +89,6 @@ public class CommunityCard {
         this.tags = tags;
     }
 
-    /**
-     * The contstructor which creates an already filled demo card
-     */
-    public CommunityCard(){
-        Log.d(LOG_TAG, "onCardCreation");
-        /*this.cardType = cardType;
-        this.userName = "Mimi";
-        this.userImagePath = Uri.parse("android.resource://my.package.name/"+R.drawable.user1);
-        this.projTitle = "lorem ipsum";
-        this.description = "dorimo dorimi fahita";
-        this.tags = "lol, bmc, amazing";
-        this.imagePath = Uri.parse("android.resource://my.package.name/"+R.drawable.imagi1);*/
-        setTime();
-    }
-
-    public CommunityCard(int cardType){
-        Log.d(LOG_TAG, "onCardCreation with the type");
-        this.cardType = cardType;
-        this.userName = "Mimi";
-        this.imagePath = Uri.parse("android.resource://my.package.name/"+R.drawable.imagi1);
-        if(cardType == 2){
-            // have a path to the image of quesiton mark or only code
-        }
-        setTime();
-    }
-
-    public CommunityCard(int cardType, String userName, Uri userImagePath){
-
-        Log.d(LOG_TAG, "onCreation with the Type and name");
-        this.cardType = cardType;
-        this.userName = userName;
-        this.userImagePath = userImagePath;
-        setTime();
-    }
-
     public void setTime(){
 
         Log.d(LOG_TAG, "setTime");
@@ -101,6 +102,9 @@ public class CommunityCard {
         Log.d(LOG_TAG, "SetImagePAth");
         this.imagePath = imagePath;
     }
+
+
+    //GETTERS
 
     public String getProjTitle(){
         return this.projTitle;

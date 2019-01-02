@@ -1,3 +1,11 @@
+
+
+
+
+// NOTE: THIS IS CURRENTLY NOT USED CLASS
+
+
+
 package com.example.karolinadrobotowicz.mobiledev;
 
 import android.support.v7.widget.RecyclerView;
