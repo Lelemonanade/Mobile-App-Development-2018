@@ -4,6 +4,7 @@ package com.example.karolinadrobotowicz.mobiledev;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.net.Uri;
@@ -19,6 +20,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -32,6 +34,7 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
     SurfaceHolder mHolder;
     Camera mCamera;
     Activity activity;
+    private File pictureFile;
 
 
     public CameraPreview(Context context, Activity pActivity) {
@@ -92,25 +95,22 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
-    private boolean safeCameraOpen() {
-        boolean qOpened = false;
-
-        // Here, thisActivity is the current activity
+    private void handlePermissions(String type){
         if (ContextCompat.checkSelfPermission(activity,
-                Manifest.permission.CAMERA)
+                type)
                 != PackageManager.PERMISSION_GRANTED) {
-            Log.d("permission", "safeCameraOpen: no permission granted");
+            Log.d("permission", "no permission granted " + type);
             // Permission is not granted
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity,
-                    Manifest.permission.CAMERA)) {
+                    type)) {
                 // Show an explanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
             } else {
                 // No explanation needed; request the permission
                 ActivityCompat.requestPermissions(activity,
-                        new String[]{Manifest.permission.CAMERA},
+                        new String[]{type},
                         7319);
 
                 // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
@@ -118,8 +118,15 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
                 // result of the request.
             }
         } else {
-            Log.d("permission", "safeCameraOpen: permission already granted");
+            Log.d("permission", "permission already granted: " + type);
         }
+    }
+
+    private boolean safeCameraOpen() {
+        boolean qOpened = false;
+
+        // Here, thisActivity is the current activity
+        handlePermissions(Manifest.permission.CAMERA);
 
         try {
             releaseCameraAndPreview();
@@ -184,15 +191,20 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void capture() {
+
         mCamera.takePicture(null, null, mPicture);
+        Log.d("foto", "called take picture");
     }
 
     private Camera.PictureCallback mPicture = new Camera.PictureCallback() {
 
+
+
         @Override
         public void onPictureTaken(byte[] data, Camera camera) {
-
-            File pictureFile = getOutputMediaFile();
+            Log.d("foto", "on picture taken start");
+            pictureFile = getOutputMediaFile();
+            Log.d("foto", "file name: " + pictureFile.toString());
             if (pictureFile == null){
                 Toast.makeText(activity, "Image retrieval failed.", Toast.LENGTH_SHORT)
                         .show();
@@ -208,12 +220,27 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            final Intent intent = new Intent(activity, AddDescriptionActivity.class);
+            //TODO change to retrieving the taken photo
+            //photo = new File(getFilesDir(), "foo.jpg");
+            //intent.setData(Uri.fromFile(photo));
+
+            // OR
+            Uri pictureUri = Uri.fromFile(pictureFile);
+            intent.setData(pictureUri);
+
+            activity.startActivity(intent);
+
+            Log.d("foto", "on picture taken end");
+
         }
     };
 
     private File getOutputMediaFile() {
         // To be safe, you should check that the SDCard is mounted
         // using Environment.getExternalStorageState() before doing this.
+        handlePermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), "MyCameraApp");
@@ -237,5 +264,9 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
 
 
         return mediaFile;
+    }
+
+    public Uri getPictureFile(){
+        return Uri.fromFile(pictureFile);
     }
 }
