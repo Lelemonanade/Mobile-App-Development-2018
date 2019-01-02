@@ -115,6 +115,7 @@ public class CommunityActivity extends AppCompatActivity {
 
         public void setTitle(String title){
             TextView projTitle = (TextView) itemView.findViewById(R.id.projectTitle);
+
             projTitle.setText(title);
         }
 
