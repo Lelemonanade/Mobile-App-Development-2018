@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -52,6 +53,7 @@
                         android:layout_toRightOf="@+id/userImage"
                         android:text="@string/user1feed"
                         android:textSize="30sp"
+                        card_view:fontFamily="@font/Century Gothic"
                         tools:ignore="ObsoleteLayoutParam" />
 
                     <TextView
@@ -62,6 +64,7 @@
                         android:layout_toEndOf="@+id/userImage"
                         android:layout_toRightOf="@+id/userImage"
                         android:text="@string/posttime"
+                        card_view:fontFamily="@font/Century Gothic"
                         tools:ignore="ObsoleteLayoutParam" />
 
                 </LinearLayout>
@@ -100,7 +103,9 @@
                     android:layout_marginBottom="0dp"
                     android:text="mimmi"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/colorAccent"
                     android:textStyle="bold"
+                    card_view:fontFamily="@font/Century Gothic"
                     tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
                 <TextView
@@ -117,6 +122,7 @@
                     android:layout_marginRight="0dp"
                     android:layout_marginBottom="0dp"
                     android:text="My first imagelabs project ! It was so fun :)"
+                    card_view:fontFamily="@font/Century Gothic"
                     tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
             </LinearLayout>
@@ -133,9 +139,11 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="0dp"
                 android:layout_marginBottom="0dp"
-                android:text="#lol"
+                android:text="#codinggirl"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorAccent"
                 android:textStyle="bold"
+                card_view:fontFamily="@font/Century Gothic"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
             <LinearLayout
@@ -160,7 +168,7 @@
                     android:layout_marginTop="0dp"
                     android:layout_marginRight="0dp"
                     android:layout_marginBottom="0dp"
-                    card_view:srcCompat="@drawable/outline_thumb_up_black_18dp"
+                    card_view:srcCompat="@drawable/outline_thumb_up_red_18dp"
                     tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
                 <ImageView
@@ -176,7 +184,7 @@
                     android:layout_marginTop="0dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="0dp"
-                    card_view:srcCompat="@drawable/baseline_comment_black_18dp"
+                    card_view:srcCompat="@drawable/baseline_comment_red_18dp"
                     tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
                 <ImageView
@@ -192,7 +200,7 @@
                     android:layout_marginTop="0dp"
                     android:layout_marginRight="0dp"
                     android:layout_marginBottom="0dp"
-                    card_view:srcCompat="@drawable/baseline_share_black_18dp"
+                    card_view:srcCompat="@drawable/baseline_share_red_18dp"
                     tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
             </LinearLayout>
@@ -209,6 +217,8 @@
                 android:layout_marginTop="5dp"
                 android:text="6 likes"
                 android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="@color/colorAccent"
+                card_view:fontFamily="@font/Century Gothic"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
         </LinearLayout>
