@@ -78,7 +78,7 @@
                 android:layout_marginLeft="0dp"
                 android:layout_marginTop="9dp"
                 android:contentDescription="@string/imagi1"
-                card_view:srcCompat="@drawable/imagi1"
+                card_view:srcCompat="@drawable/ic_image_placeholder"
                 tools:ignore="ObsoleteLayoutParam" />
 
             <LinearLayout
@@ -120,6 +120,23 @@
                     tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/postTags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/postImage"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp"
+                android:text="#lol"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

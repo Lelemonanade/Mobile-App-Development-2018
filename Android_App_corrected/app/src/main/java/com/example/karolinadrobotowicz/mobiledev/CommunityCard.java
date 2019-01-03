@@ -21,13 +21,14 @@ public class CommunityCard {
     //private int cardType; // 0-null, 1-project, 2-question
     private List<String> tags;
 
-    public CommunityCard(String title, String username, String desc, String imageUrl, List<String> tags) {
+    public CommunityCard(String title, String username, String desc, String imageUrl, List<String> tags, String time) {
         this.title = title;
         this.username = username;
         this.desc = desc;
         this.imageUrl = imageUrl;
         this.tags = tags;
-        setTime();
+        this.time = time;
+        //setTime();
     }
 
     public CommunityCard(){
@@ -39,7 +40,7 @@ public class CommunityCard {
         this.desc = "dorimo dorimi fahita";
         this.tags = "lol, bmc, amazing";
         this.imageUrl = Uri.parse("android.resource://my.package.name/"+R.drawable.imagi1);*/
-        setTime();
+        //setTime();
     }
 
     /* TODO check if needed

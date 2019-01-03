@@ -1,6 +1,6 @@
 package com.example.karolinadrobotowicz.mobiledev;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,26 +14,22 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.File;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
-
-import static com.example.karolinadrobotowicz.mobiledev.R.id.projectTitle;
 
 public class AddDescriptionActivity extends AppCompatActivity {
 
@@ -105,7 +101,8 @@ public class AddDescriptionActivity extends AppCompatActivity {
                     Log.d("addDesc", "onSuccess of adding the file");
                     @SuppressWarnings("VisibleForTests")
                     //getting the post image download url
-                    final Uri downloadUrl = Uri.parse(taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
+
+                    final String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
                     Toast.makeText(getApplicationContext(), "Succesfully Uploaded", Toast.LENGTH_SHORT).show();
 
                     //adding post contents to datbase reference
@@ -116,7 +113,10 @@ public class AddDescriptionActivity extends AppCompatActivity {
                             newPost.child("title").setValue(title);
                             newPost.child("desc").setValue(description);
                             newPost.child("tags").setValue(tagList);
-                            newPost.child("imageUrl").setValue(uri.toString());
+                            newPost.child("imageUrl").setValue(uri.getLastPathSegment());
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                            Date date = new Date();
+                            newPost.child("time").setValue(formatter.format(date));
                             //newPost.child("uid").setValue(mCurrentUser.getUid());
                             newPost.child("username").setValue("mimi")
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -126,8 +126,9 @@ public class AddDescriptionActivity extends AppCompatActivity {
                                                 Intent intent = new Intent(AddDescriptionActivity.this, CommunityActivity.class);
                                                 //TODO check if works
                                                 // closing previous activities
-                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                //you can also check this one: Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                                //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                //you can also check this one:
+                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                 startActivity(intent);
                                             }
                                         }
@@ -145,5 +146,4 @@ public class AddDescriptionActivity extends AppCompatActivity {
         }
 
     }
-
 }

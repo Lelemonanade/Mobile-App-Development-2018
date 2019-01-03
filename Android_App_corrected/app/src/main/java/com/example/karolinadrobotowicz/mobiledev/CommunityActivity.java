@@ -1,20 +1,29 @@
 package com.example.karolinadrobotowicz.mobiledev;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.InputStream;
+import java.util.List;
 
 
 public class CommunityActivity extends AppCompatActivity {
@@ -24,6 +33,7 @@ public class CommunityActivity extends AppCompatActivity {
     //static View.OnClickListener myOnClickListener;
 
     private DatabaseReference mDatabase;
+    private static StorageReference storageRef;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -38,8 +48,8 @@ public class CommunityActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        // TODO DEBUG might not connect here?
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Cards");
+        storageRef = FirebaseStorage.getInstance().getReference().child("post_images");
 
        /* TODO login
         mAuth = FirebaseAuth.getInstance();
@@ -73,12 +83,13 @@ public class CommunityActivity extends AppCompatActivity {
                         //final String post_key = getRef(position).getKey().toString();
                         viewHolder.setTitle(card.getTitle());
                         viewHolder.setDesc(card.getDesc());
-                        //TODO add tags
-                        // TODO add user image
-                        //viewHolder.setImageUrl(Uri.parse(card.getImageUrl()));
+                        viewHolder.setTags(card.getTags());
+                        viewHolder.setTime(card.getTime());
+                        // TODO add user image and username
+                        viewHolder.setImageUrl(CommunityActivity.this, card.getImageUrl());
                         viewHolder.setUserName(card.getUsername());
                         // shows null for now
-                        Log.d("CommunityTitle", card.getTitle().toString());
+                        Log.d("CommunityImage", card.getImageUrl());
 
 
                         /* TODO if we want singleActivity class
@@ -114,11 +125,26 @@ public class CommunityActivity extends AppCompatActivity {
             description.setText(desc);
         }
 
-        public void setImageUrl(Uri imageUri){
+        public void setTags(List<String> tags){
+            //TODO work on better tags representations
+            TextView tagsPlace = (TextView) itemView.findViewById(R.id.postTags);
+            if(!tags.isEmpty()){
+                tags.add(0, "");
+                tagsPlace.setText(TextUtils.join(" #", tags));
+            }
+
+        }
+
+        public void setImageUrl(Context ctx, String imageUri){
+
+            StorageReference fileRef = storageRef.child(imageUri);
             ImageView projImage = (ImageView) itemView.findViewById(R.id.postImage);
-            projImage.setImageURI(null);
-            projImage.setImageURI(imageUri);
-            //Picasso.with(ctx).load(imageUrl).into(projImage);
+            //projImage.setImageURI(null);
+            //projImage.setImageURI(imageUri);
+            //Picasso.with(context).load(imageUri).into(projImage);
+            GlideApp.with(ctx)
+                    .load(fileRef)
+                    .into(projImage);
         }
 
         public void setUserName(String userName){
@@ -156,4 +182,7 @@ public class CommunityActivity extends AppCompatActivity {
         });
     }*/
 
+
+
 }
+
