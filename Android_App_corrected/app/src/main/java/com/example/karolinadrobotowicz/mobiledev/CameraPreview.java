@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.media.ExifInterface;
 import android.net.Uri;
@@ -173,6 +174,30 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
         camera.setDisplayOrientation(result);
     }
 
+    public static int getRotation(Activity activity, int cameraId, android.hardware.Camera camera){
+        android.hardware.Camera.CameraInfo info =
+                new android.hardware.Camera.CameraInfo();
+        android.hardware.Camera.getCameraInfo(cameraId, info);
+        int rotation = activity.getWindowManager().getDefaultDisplay()
+                .getRotation();
+        int degrees = 0;
+        switch (rotation) {
+            case Surface.ROTATION_0: degrees = 0; break;
+            case Surface.ROTATION_90: degrees = 90; break;
+            case Surface.ROTATION_180: degrees = 180; break;
+            case Surface.ROTATION_270: degrees = 270; break;
+        }
+
+        int result;
+        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+            result = (info.orientation + degrees) % 360;
+            result = (360 - result) % 360;  // compensate the mirror
+        } else {  // back-facing
+            result = (info.orientation - degrees + 360) % 360;
+        }
+        return result;
+    }
+
     private void releaseCameraAndPreview() {
         this.setCamera(null);
         if (mCamera != null) {
@@ -240,9 +265,6 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
             pictureFile = getOutputMediaFile();
             Log.d("foto", "file name: " + pictureFile.toString());
 
-            int rotation = activity.getWindowManager().getDefaultDisplay()
-                    .getRotation();
-            Log.d("foto", "rotation: " + rotation);
 
             if (pictureFile == null){
                 Toast.makeText(activity, "Image retrieval failed.", Toast.LENGTH_SHORT)
