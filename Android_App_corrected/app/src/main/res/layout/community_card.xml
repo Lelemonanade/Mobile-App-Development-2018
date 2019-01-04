@@ -19,11 +19,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -33,15 +41,17 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
+                    android:layout_margin="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
-                    android:contentDescription="@string/user1feed"
+                    android:contentDescription="Userphoto"
                     card_view:srcCompat="@drawable/user1"
                     tools:ignore="ObsoleteLayoutParam" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -141,7 +151,7 @@
                 android:layout_marginBottom="0dp"
                 android:text="#codinggirl"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@color/colorAccent"
+                android:textColor="#4a4a4a"
                 android:textStyle="bold"
                 card_view:fontFamily="@font/century_gothic"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
@@ -169,8 +179,7 @@
                     android:layout_marginRight="0dp"
                     android:layout_marginBottom="0dp"
                     card_view:srcCompat="@drawable/outline_thumb_up_red_18dp"
-                    tools:ignore="ContentDescription,ObsoleteLayoutParam"
-                    />
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
                 <ImageView
                     android:id="@+id/icon_comment"
@@ -186,8 +195,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="0dp"
                     card_view:srcCompat="@drawable/baseline_comment_red_18dp"
-                    tools:ignore="ContentDescription,ObsoleteLayoutParam"
-                    />
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
                 <ImageView
                     android:id="@+id/icon_share"
@@ -203,8 +211,7 @@
                     android:layout_marginRight="0dp"
                     android:layout_marginBottom="0dp"
                     card_view:srcCompat="@drawable/baseline_share_red_18dp"
-                    tools:ignore="ContentDescription,ObsoleteLayoutParam"
-                    />
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
 
             </LinearLayout>
 
@@ -218,9 +225,11 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="0dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp"
                 android:text="6 likes"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textColor="@color/colorAccent"
+                android:textColor="#4a4a4a"
                 card_view:fontFamily="@font/century_gothic"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
 
