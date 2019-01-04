@@ -87,9 +87,8 @@ public class CameraActivity extends Activity {
 
 
         final Intent intent = new Intent(this, AddDescriptionActivity.class);
-        //TODO change to retrieving the taken photo
 
-        Uri pictureUri = Uri.parse("android.resource://com.example.karolinadrobotowicz.mobiledev/"+R.drawable.ic_image_placeholder);
+        Uri pictureUri = Uri.parse("android.resource://com.example.karolinadrobotowicz.mobiledev/"+R.drawable.imagi1);
         intent.setData(pictureUri);
 
         startActivity(intent);
