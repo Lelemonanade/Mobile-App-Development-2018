@@ -7,7 +7,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
@@ -236,6 +239,11 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
             Log.d("foto", "on picture taken start");
             pictureFile = getOutputMediaFile();
             Log.d("foto", "file name: " + pictureFile.toString());
+
+            int rotation = activity.getWindowManager().getDefaultDisplay()
+                    .getRotation();
+            Log.d("foto", "rotation: " + rotation);
+
             if (pictureFile == null){
                 Toast.makeText(activity, "Image retrieval failed.", Toast.LENGTH_SHORT)
                         .show();
@@ -253,11 +261,7 @@ class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
             }
 
             final Intent intent = new Intent(activity, AddDescriptionActivity.class);
-            //TODO change to retrieving the taken photo
-            //photo = new File(getFilesDir(), "foo.jpg");
-            //intent.setData(Uri.fromFile(photo));
 
-            // OR
             Uri pictureUri = Uri.fromFile(pictureFile);
             intent.setData(pictureUri);
 
