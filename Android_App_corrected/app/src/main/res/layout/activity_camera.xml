@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -38,7 +39,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="bottom|center"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="0dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/baseline_camera_turquoise_120px"
@@ -156,3 +157,4 @@
 
 
 </RelativeLayout>
+
