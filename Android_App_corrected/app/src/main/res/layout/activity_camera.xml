@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundblurry">
+    android:background="@drawable/backgroundblurry"
+    android:id="@+id/relativeCameraLayout">
 
 <!--
     <android.support.design.widget.BottomNavigationView
@@ -109,7 +110,8 @@
             android:layout_marginLeft="10dp"
             android:background="@null"
             android:contentDescription="folder icon to select project code"
-            android:src="@drawable/baseline_folder_open_turquoise_48px" />
+            android:src="@drawable/baseline_folder_open_turquoise_48px"
+            android:onClick="notDeveloped"/>
 
         <TextView
             android:id="@+id/textView"
@@ -120,7 +122,8 @@
             android:layout_marginTop="-6dp"
             android:layout_marginEnd="119dp"
             android:text="Select code"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:onClick="notDeveloped"/>
 
         <ImageButton
             android:id="@+id/imageButton4"
@@ -131,7 +134,8 @@
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:background="@null"
-            android:src="@drawable/baseline_play_circle_filled_turquoise_48px" />
+            android:src="@drawable/baseline_play_circle_filled_turquoise_48px"
+            android:onClick="notDeveloped"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -144,6 +148,7 @@
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
             android:text="Run code"
+            android:onClick="notDeveloped"
             android:textColor="@color/colorPrimary" />
     </RelativeLayout>
 <!--

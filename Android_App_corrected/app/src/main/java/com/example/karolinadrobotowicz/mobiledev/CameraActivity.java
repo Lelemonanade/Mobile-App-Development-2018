@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -92,6 +93,11 @@ public class CameraActivity extends Activity {
         intent.setData(pictureUri);
 
         startActivity(intent);
+    }
+
+    public void notDeveloped(View view){
+        Snackbar.make(findViewById(R.id.relativeCameraLayout),
+                R.string.notdeveloped, Snackbar.LENGTH_SHORT).show();
     }
 
 

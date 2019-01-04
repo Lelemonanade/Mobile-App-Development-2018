@@ -169,7 +169,8 @@
                     android:layout_marginRight="0dp"
                     android:layout_marginBottom="0dp"
                     card_view:srcCompat="@drawable/outline_thumb_up_red_18dp"
-                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam"
+                    />
 
                 <ImageView
                     android:id="@+id/icon_comment"
@@ -185,7 +186,8 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="0dp"
                     card_view:srcCompat="@drawable/baseline_comment_red_18dp"
-                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam"
+                    />
 
                 <ImageView
                     android:id="@+id/icon_share"
@@ -201,7 +203,8 @@
                     android:layout_marginRight="0dp"
                     android:layout_marginBottom="0dp"
                     card_view:srcCompat="@drawable/baseline_share_red_18dp"
-                    tools:ignore="ContentDescription,ObsoleteLayoutParam" />
+                    tools:ignore="ContentDescription,ObsoleteLayoutParam"
+                    />
 
             </LinearLayout>
 
