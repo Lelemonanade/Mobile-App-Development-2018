@@ -47,7 +47,7 @@ public class CameraActivity extends Activity {
                     return true;
                 case R.id.navigation_next:
                     //mTextMessage.setText(R.string.title_next);
-                    goToAddDescription();
+
                     return true;
             }
             return false;
@@ -62,18 +62,24 @@ public class CameraActivity extends Activity {
         Log.d("foto", "camera activity creation");
 
         //mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        //BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        //navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         mPreview= new CameraPreview(this.getApplicationContext(), this);
 
         FrameLayout layout = (FrameLayout)findViewById(R.id.cameraFrame);
         layout.addView(mPreview);
+
+        FrameLayout cameraControlFrame = (FrameLayout)findViewById(R.id.cameraControlFrame);
+        cameraControlFrame.bringToFront();
     }
 
+    public void capture(View view){
+        Log.d("foto", "trigger button method");
+        mPreview.capture();
+    }
 
-
-    public void goToAddDescription() {
+    public void goToAddDescription(View view) {
         Log.d("switch", "called method shortcut go to Camera");
 
         //CommunityCard newPost = new CommunityCard(1);
